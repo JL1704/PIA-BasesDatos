@@ -11,13 +11,13 @@ import { Cuenta } from 'src/app/interfaces/cuenta.interface';
 })
 export class SignUpComponent  implements OnInit {
 
-  cuenta: Cuenta = {
-    id_Cuenta: 0,
+  cuenta: Partial<Cuenta> = {
     nombre: '',
     correo: '',
     contrasena: '',
-    fk_Id_Rol: 0
+    fk_Id_Rol: 2
   };
+
   roles = [
     { id: 1, nombre: 'Admin' },
     { id: 2, nombre: 'Usuario' },
@@ -28,6 +28,32 @@ export class SignUpComponent  implements OnInit {
 
   ngOnInit() {}
 
+  crearCuenta() {
+    /*
+    this.sesionService.crearCuenta(this.cuenta as Cuenta).subscribe(response => {
+      if (response.success) {
+        console.log('Cuenta creada con éxito', response);
+        this.closeModal();
+      } else {
+        console.error('Error al crear la cuenta', response.message);
+      }
+    });*/
+    if (this.cuenta.fk_Id_Rol === undefined) {
+      // Manejar el caso cuando no se ha seleccionado un rol
+      console.error('Debe seleccionar un rol');
+      return;
+    }
+
+    this.sesionService.crearCuenta(this.cuenta as Cuenta).subscribe(response => {
+      if (response.success) {
+        console.log('Cuenta creada con éxito', response);
+        this.closeModal();
+      } else {
+        console.error('Error al crear la cuenta', response.message);
+      }
+    });
+  }
+/*
   crearCuenta() {
     this.sesionService.crearCuenta(this.cuenta).subscribe(
       response => {
@@ -40,7 +66,7 @@ export class SignUpComponent  implements OnInit {
         // Maneja el error aquí
       }
     );
-  }
+  }*/
 
   closeModal() {
     this.modalController.dismiss();

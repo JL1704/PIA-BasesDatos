@@ -1,4 +1,4 @@
-
+<!--
   <form [formGroup]="eventoForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="stacked">Nombre del evento</ion-label>
@@ -50,5 +50,59 @@
     </ion-item>
 
     <ion-button expand="full" type="submit" [disabled]="!eventoForm.valid">Crear Evento</ion-button>
+  </form>-->
+
+  <form [formGroup]="eventoForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Nombre del evento</ion-label>
+      <ion-input formControlName="nombreEvento" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Categoría</ion-label>
+      <ion-select formControlName="categoria">
+        <ion-select-option value="opcion1">Opción 1</ion-select-option>
+        <ion-select-option value="opcion2">Opción 2</ion-select-option>
+        <ion-select-option value="opcion3">Opción 3</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Sede del evento</ion-label>
+      <ion-select formControlName="sede">
+        <ion-select-option value="sede1">Sede 1</ion-select-option>
+        <ion-select-option value="sede2">Sede 2</ion-select-option>
+        <ion-select-option value="sede3">Sede 3</ion-select-option>
+        <ion-select-option value="sede4">Sede 4</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Poster del evento</ion-label>
+      <input type="file" (change)="onFileChange($event)">
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Temarios del evento</ion-label>
+      <ion-input formControlName="temarios" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Precio del evento (Opcional)</ion-label>
+      <ion-input formControlName="precio" type="number"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Capacidad del evento</ion-label>
+      <ion-input formControlName="capacidad" type="number"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Fecha del evento</ion-label>
+      <ion-datetime formControlName="fecha" display-format="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+  
+    <ion-button expand="full" type="submit" [disabled]="!eventoForm.valid">Crear Evento</ion-button>
   </form>
+  
 

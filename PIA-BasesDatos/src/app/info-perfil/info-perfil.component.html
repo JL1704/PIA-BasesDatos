@@ -1,0 +1,15 @@
+
+  <ion-card *ngIf="cuenta">
+    <ion-card-header>
+      <ion-card-title>Perfil de {{ cuenta.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Nombre:</strong> {{ cuenta.nombre }}</p>
+      <p><strong>Correo:</strong> {{ cuenta.correo }}</p>
+      <p><strong>Rol:</strong> {{ obtenerNombreRol(cuenta.fk_Id_Rol) }}</p>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
