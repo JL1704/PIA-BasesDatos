@@ -7,28 +7,43 @@
   </ion-toolbar>
 </ion-header>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Crear cuenta</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <form>
-        <ion-item>
-          <ion-label position="floating">Correo</ion-label>
-          <ion-input type="email" #email required></ion-input>
-        </ion-item>
-        
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" #password required></ion-input>
-        </ion-item>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Crear cuenta</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form (ngSubmit)="crearCuenta()">
+      <ion-item lines="none">
+        <ion-label position="stacked" class="input-label">Nombre</ion-label>
+        <ion-input type="text" name="nombre" id="nombre" [(ngModel)]="cuenta.nombre" placeholder="Nombre" required></ion-input>
+      </ion-item>
 
-        <ion-button color="tertiary" expand="block" type="submit">Crear cuenta</ion-button>
-      </form>
+      <ion-item lines="none">
+        <ion-label position="stacked" class="input-label">Correo</ion-label>
+        <ion-input type="email" name="email" id="email" [(ngModel)]="cuenta.correo" placeholder="ejemplo@email.com" required></ion-input>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-label position="stacked" class="input-label">Contraseña</ion-label>
+        <ion-input type="password" name="password" id="password" [(ngModel)]="cuenta.contrasena" placeholder="••••••••" required></ion-input>
+      </ion-item>
 
-      <p class="ion-text-center">
-        Ya tienes una cuenta? 
-        <button (click)="closeModal()" class="link-button">Inicia sesión</button>
-      </p>
-    </ion-card-content>
-  </ion-card>
+      <ion-item lines="none">
+        <ion-label position="stacked" class="input-label">Rol</ion-label>
+        <ion-select [(ngModel)]="cuenta.fk_Id_Rol" placeholder="Selecciona un rol" required>
+          <ion-select-option *ngFor="let rol of roles" [value]="rol.id">{{ rol.nombre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="full" color="tertiary" type="submit" class="sign-up-button">
+        Crear cuenta
+      </ion-button>
+    </form>
+
+    <p class="ion-text-center">
+      Ya tienes una cuenta? 
+      <button (click)="closeModal()" class="link-button">Inicia sesión</button>
+    </p>
+  </ion-card-content>
+</ion-card>
+

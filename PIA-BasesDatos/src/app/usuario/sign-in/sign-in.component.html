@@ -1,23 +1,19 @@
 <ion-card>
   <ion-card-content class="login-form">
-    <h1 class="login-title">Inicia sesion en tu cuenta</h1>
+    <h1 class="login-title">Inicia sesión en tu cuenta</h1>
 
     <ion-item lines="none">
       <ion-label position="stacked" class="input-label">Correo</ion-label>
-      <ion-input type="email" name="email" id="email" [(ngModel)]="email" placeholder="ejemplo@email.com" required></ion-input>
+      <ion-input type="email" name="email" id="email" [(ngModel)]="cuenta.correo" placeholder="ejemplo@email.com" required></ion-input>
     </ion-item>
 
     <ion-item lines="none">
       <ion-label position="stacked" class="input-label">Contraseña</ion-label>
-      <ion-input type="password" name="password" id="password" [(ngModel)]="password" placeholder="••••••••" required></ion-input>
+      <ion-input type="password" name="password" id="password" [(ngModel)]="cuenta.contrasena" placeholder="••••••••" required></ion-input>
     </ion-item>
 
-    <!--<ion-button expand="full" color="tertiary" class="login-button" (click)="logIn(email, password)">
-      Sign in
-    </ion-button>-->
-
-    <ion-button expand="full" color="tertiary" class="login-button">
-      Iniciar sesion
+    <ion-button expand="full" color="tertiary" class="login-button" (click)="iniciarSesion()">
+      Iniciar sesión
     </ion-button>
     
   </ion-card-content>
