@@ -1,11 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Perfil</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" *ngIf="isLoggedIn">
+  <app-info-perfil></app-info-perfil>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  
-  <app-info-perfil></app-info-perfil>
+<ion-content [fullscreen]="true" *ngIf="isLoggedIn">
+  <!-- Contenido del perfil cuando el usuario está autenticado -->
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>Welcome to your profile</ion-card-title>
+    </ion-card-header>
 
+    <ion-card-content>
+      <app-dashboard></app-dashboard>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+
+</ion-content>
+
+<ion-content [fullscreen]="true" *ngIf="!isLoggedIn">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title size="large" class="condensed-title">Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-login></app-login>
+
+  <ion-card class="signup-card">
+    <ion-card-header>
+      <ion-card-title>Create an Account</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Don't have an account yet? Sign up now!</p>
+      <ion-button color="tertiary" expand="block" (click)="openSignUpModal($event)">Sign up</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,0 +1,29 @@
+<ion-card>
+  <ion-card-content class="login-form">
+    <h1 class="login-title">Sign in to your account</h1>
+
+    <ion-item lines="none">
+      <ion-label position="stacked" class="input-label">Your email</ion-label>
+      <ion-input type="email" name="email" id="email" [(ngModel)]="email" placeholder="example@email.com" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked" class="input-label">Password</ion-label>
+      <ion-input type="password" name="password" id="password" [(ngModel)]="password" placeholder="••••••••" required></ion-input>
+    </ion-item>
+
+    <!-- Mostrar mensaje de error si hay un error de inicio de sesión -->
+    <ion-text *ngIf="loginError" color="danger">
+      {{ loginError }}
+    </ion-text>
+
+    <ion-button expand="full" color="tertiary" class="login-button" (click)="logIn(email, password)">
+      Sign in
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+
+
+
+
+

@@ -9,6 +9,8 @@ import { CrearEventosPageRoutingModule } from './crear-eventos-routing.module';
 import { CrearEventosPage } from './crear-eventos.page';
 import { FormularioComponent } from '../formulario/formulario.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormDependenciaComponent } from '../form-dependencia/form-dependencia.component';
+import { FormSedeComponent } from '../form-sede/form-sede.component';
 
 @NgModule({
   imports: [
@@ -18,6 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     CrearEventosPageRoutingModule
   ],
-  declarations: [CrearEventosPage, FormularioComponent]
+  declarations: [CrearEventosPage, FormularioComponent, FormDependenciaComponent, FormSedeComponent]
 })
 export class CrearEventosPageModule {}

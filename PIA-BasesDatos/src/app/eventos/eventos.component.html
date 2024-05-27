@@ -1,4 +1,4 @@
-<ion-card *ngFor="let evento of eventos">
+<!--<ion-card *ngFor="let evento of eventos">
   <div class="card-container">
     <div class="date-container">
       <div class="day">{{ obtenerDia(evento.fechaEvento) }}</div>
@@ -15,4 +15,45 @@
     </div>
   </div>
 </ion-card>
+
+<ion-card *ngFor="let evento of eventos">
+  <div class="card-container">
+    <div class="date-container">
+      <div class="day">34</div>
+      <div class="month">mes</div>
+
+    </div>        
+    <div class="info-container">
+      <ion-card-header>
+        <ion-card-title>{{ evento.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Lugar: {{ obtenerNombreSede(evento.fkIdSede.toString()) | async }}</p>
+
+        <ion-button color="tertiary" expand="full" fill="outline">Ver más detalles</ion-button>
+      </ion-card-content>
+    </div>
+  </div>
+</ion-card>
+
+<ion-card *ngFor="let evento of eventos">
+  <div class="card-container">
+    <div class="date-container">
+      <div class="day">{{ obtenerDia(evento.fechaEvento) }}</div>
+      <div class="month">{{ obtenerMes(evento.fechaEvento) }}</div>
+    </div>        
+    <div class="info-container">
+      <ion-card-header>
+        <ion-card-title>{{ evento.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Lugar: {{ obtenerNombreSede(evento.fkIdSede.toString()) | async }}</p>
+        <ion-button color="tertiary" expand="full" fill="outline">Ver más detalles</ion-button>
+      </ion-card-content>
+    </div>
+  </div>
+</ion-card>
+-->
+
+
 

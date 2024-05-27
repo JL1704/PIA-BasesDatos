@@ -3,6 +3,7 @@ export interface Evento {
     nombre: string;
     categoria: string;
     fkIdSede: number;
+    dependencias: number;
     poster: string;
     temario: string;
     costos?: number;

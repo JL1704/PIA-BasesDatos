@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (submit)="signUp($event)">
+
+        <ion-item lines="none">
+          <ion-label position="stacked" class="input-label">Nombre</ion-label>
+          <ion-input type="text" name="nombre" id="nombre" #nombreInput></ion-input> <!-- Agrega #nombreInput aquí -->
+        </ion-item>
+        
+
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input type="email" #email required></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" #password required></ion-input>
+        </ion-item>
+  
+        <ion-item lines="none">
+          <ion-label position="stacked" class="input-label">Rol</ion-label>
+          <ion-select placeholder="Selecciona un rol" [(ngModel)]="selectedRole" name="role" required>
+            <ion-select-option value="administrador_general">Administrador General</ion-select-option>
+            <ion-select-option value="administrador_dependencia">Administrador por Dependencia</ion-select-option>
+            <ion-select-option value="cliente">Cliente</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-button expand="block" type="submit">Registrarse</ion-button>
+      </form>
+
+      <p class="ion-text-center">
+        ¿Ya tienes una cuenta? 
+        <a routerLink="/login">Iniciar sesión</a>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

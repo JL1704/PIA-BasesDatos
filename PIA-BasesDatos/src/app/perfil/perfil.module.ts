@@ -9,6 +9,13 @@ import { PerfilPageRoutingModule } from './perfil-routing.module';
 import { PerfilPage } from './perfil.page';
 import { InfoPerfilComponent } from '../info-perfil/info-perfil.component';
 
+
+
+import { LoginComponent } from '../auth/login/login.component';
+import { DashboardComponent } from '../auth/dashboard/dashboard.component';
+import { SignUpComponent } from '../auth/sign-up/sign-up.component';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +23,8 @@ import { InfoPerfilComponent } from '../info-perfil/info-perfil.component';
     IonicModule,
     PerfilPageRoutingModule
   ],
-  declarations: [PerfilPage, InfoPerfilComponent]
+  declarations: [PerfilPage, InfoPerfilComponent, LoginComponent, DashboardComponent, SignUpComponent]
 })
 export class PerfilPageModule {}
+
+

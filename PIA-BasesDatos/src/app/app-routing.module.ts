@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './auth/login/login.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { DashboardComponent } from './auth/dashboard/dashboard.component';
+import { authGuard } from '../app/shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule) // Cambiar la ruta predeterminada al módulo de login
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule) // Cambiar la ruta predeterminada al módulo de login
   },
   {
     path: 'tabs',
@@ -31,8 +35,17 @@ const routes: Routes = [
     loadChildren: () => import('./eventos-creados/eventos-creados.module').then(m => m.EventosCreadosPageModule)
   },
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
+    path: 'auth/login',
+    component: LoginComponent
+  },
+  {
+    path: 'auth/sign-up',
+    component: SignUpComponent
+  },
+  {
+    path: 'auth/dashboard',
+    component: DashboardComponent,
+    canActivate: [authGuard]
   }
 ];
 
