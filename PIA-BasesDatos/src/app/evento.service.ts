@@ -40,6 +40,10 @@ export class EventoService {
     );
   }
 
+  actualizarEvento(eventoId: string, newData: any): Observable<void> {
+    return from(this.firestore.doc(`eventos/${eventoId}`).update(newData));
+  }
+
 
 
 }

@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { EventosRegistradosPageRoutingModule } from './eventos-registrados-routing.module';
 
 import { EventosRegistradosPage } from './eventos-registrados.page';
+import { AddInvitadoComponent } from '../add-invitado/add-invitado.component';
+import { VerUsuariosComponent } from '../ver-usuarios/ver-usuarios.component';
+import { VerInvitadosComponent } from '../ver-invitados/ver-invitados.component';
 
 @NgModule({
   imports: [
@@ -15,6 +18,6 @@ import { EventosRegistradosPage } from './eventos-registrados.page';
     IonicModule,
     EventosRegistradosPageRoutingModule
   ],
-  declarations: [EventosRegistradosPage]
+  declarations: [EventosRegistradosPage, AddInvitadoComponent, VerUsuariosComponent, VerInvitadosComponent]
 })
 export class EventosRegistradosPageModule {}

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Invitados
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let invitado of invitados">
+      <ion-label>
+        <h2>{{ invitado.nombre }}</h2>
+        <p>Correo: {{ invitado.correo }}</p>
+        <p>Evento: {{ invitado.idEvento.nombre }}</p> <!-- Aquí accedemos al nombre del evento -->
+      </ion-label>
+      <ion-button color="danger" (click)="eliminarInvitado(invitado.id)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

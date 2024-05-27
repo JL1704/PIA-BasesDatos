@@ -1,40 +1,44 @@
-<!---
-  <ion-list>
-    <ion-item *ngFor="let evento of eventos; let i = index">
-      <ion-thumbnail slot="start">
-        <img [src]="evento.poster">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ evento.nombre }}</h2>
-        <p>{{ evento.categoria }}</p>
-        <p>{{ evento.temario }}</p>
-        <p>{{ evento.fkIdSede }}</p>
-        <p>{{ evento.costos | currency }}</p>
-        <p>Capacidad: {{ evento.capacidad }}</p>
-        <p>Fecha de Evento: {{ diasEventos[i] }}/{{ mesesEventos[i] }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>-->
+<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterItems()"></ion-searchbar>
 
-<ion-card *ngFor="let evento of eventos; let i = index">
-  <div class="card-container">
-    <div class="date-container">
-      <div class="day">{{ diasEventos[i] }}</div>
-      <div class="month">{{ mesesEventos[i] }}</div>
-    </div>        
-    <div class="info-container">
-      <ion-card-header>
-        <ion-card-title>{{ evento.nombre }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Lugar: {{ evento.fkIdSede }}</p>
-        <ion-button color="tertiary" expand="full" fill="outline" (click)="abrirModal(evento)">Ver más detalles</ion-button>
-      </ion-card-content>
+<ng-container *ngIf="filteredEventos.length > 0">
+  <ion-card *ngFor="let evento of filteredEventos; let i = index">
+    <div class="card-container">
+      <div class="date-container">
+        <div class="day">{{ diasEventos[i] }}</div>
+        <div class="month">{{ mesesEventos[i] }}</div>
+      </div>        
+      <div class="info-container">
+        <ion-card-header>
+          <ion-card-title>{{ evento.nombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Lugar: {{ evento.fkIdSede }}</p>
+          <!--<p>Dependencia: {{ evento.fkIdDependencias }}</p>-->
+          <ion-button color="tertiary" expand="full" fill="outline" (click)="abrirModal(evento)">Ver más detalles</ion-button>
+        </ion-card-content>
+      </div>
     </div>
-  </div>
-</ion-card>
+  </ion-card>
+</ng-container>
 
-
-
-
+<ng-container *ngIf="filteredEventos.length === 0">
+  <ion-card *ngFor="let evento of eventos; let i = index">
+    <div class="card-container">
+      <div class="date-container">
+        <div class="day">{{ diasEventos[i] }}</div>
+        <div class="month">{{ mesesEventos[i] }}</div>
+      </div>        
+      <div class="info-container">
+        <ion-card-header>
+          <ion-card-title>{{ evento.nombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Lugar: {{ evento.fkIdSede }}</p>
+          <!--<p>Dependencia: {{ evento.fkIdDependencias }}</p>-->
+          <ion-button color="tertiary" expand="full" fill="outline" (click)="abrirModal(evento)">Ver más detalles</ion-button>
+        </ion-card-content>
+      </div>
+    </div>
+  </ion-card>
+</ng-container>
 

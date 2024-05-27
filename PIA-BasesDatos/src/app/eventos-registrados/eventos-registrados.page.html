@@ -1,13 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>EventosRegistrados</ion-title>
+    <ion-title>Administracion</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">EventosRegistrados</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-button (click)="abrirModalAddInvitado()">Agregar Invitado</ion-button>
+
+  <ion-button (click)="abrirModalVerUsuarios()">Ver datos de usuario</ion-button>
+
+  <ion-button (click)="abrirModalVerInvitados()">Ver Invitados</ion-button>
+
 </ion-content>

@@ -1,0 +1,34 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Registro completado</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Nombre:</ion-label>
+        <ion-text>{{ registro.nombre }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Correo:</ion-label>
+        <ion-text>{{ registro.correo }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Asiento:</ion-label>
+        <ion-text>{{ registro.asiento }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Evento:</ion-label>
+        <ion-text>{{ registro.evento.id }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Método de Pago:</ion-label>
+        <ion-text>{{ registro.metodoPago }}</ion-text>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<ion-label>Su boleto sera enviado con todos los detalles a su correo electronico!</ion-label>
+
+<ion-button expand="full" (click)="cerrarModal()">Aceptar</ion-button>

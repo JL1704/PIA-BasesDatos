@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ver Usuarios
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios">
+      <ion-label>
+        <h2>{{ usuario.nombre }}</h2>
+        <p>Email: {{ usuario.email }}</p>
+        <p>Rol: {{ usuario.rol }}</p>
+      </ion-label>
+      <ion-button color="danger" (click)="eliminarUsuario(usuario.id)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

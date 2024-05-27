@@ -5,6 +5,8 @@ import { Evento } from '../interfaces/evento.interface';
 import { Timestamp } from 'firebase/firestore'; // Cambia la importación de Timestamp
 import { Sedes } from '../interfaces/sedes.interface';
 import { Dependencias } from '../interfaces/dependencia.interface';
+import { EditarEventoComponent } from '../editar-evento/editar-evento.component';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-detalles',
@@ -46,8 +48,28 @@ export class DetallesComponent {
     TipoDependencia: '',
 }
 
+async abrirEdicionEvento() {
+  const modal = await this.modalController.create({
+    component: EditarEventoComponent,
+    componentProps: {
+      evento: this.evento // Pasar el evento al componente de edición
+    }
+  });
+  return await modal.present();
+}
 
-  constructor(private modalController: ModalController) { }
+async eliminarEvento() {
+  try {
+    await this.firestore.collection('eventos').doc(this.evento.idEvento).delete();
+    // Cerrar el modal después de eliminar el evento
+    this.modalController.dismiss();
+  } catch (error) {
+    console.error('Error al eliminar evento:', error);
+  }
+}
+
+
+  constructor(private modalController: ModalController, private firestore: AngularFirestore) { }
 
   cerrarModal() {
     this.modalController.dismiss();
