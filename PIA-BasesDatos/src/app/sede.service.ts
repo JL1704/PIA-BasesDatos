@@ -19,9 +19,17 @@ export class SedeService {
   }
 
   obtenerNombreSedePorId(idSede: string): Observable<string> {
-    return this.firestore.doc<{ nombre: string }>(`Sedes/${idSede}`).valueChanges().pipe(
-      map(data => data ? data.nombre : 'Nombre de la sede no encontrado')
+    return this.firestore.doc<{ Nombre: string }>(`Sedes/${idSede}`).valueChanges().pipe(
+      map(data => data ? data.Nombre : 'Nombre de la sede no encontrado')
     );
+  }
+
+  agregarSede(sede: any) {
+    return this.firestore.collection('Sedes').doc(sede.Nombre).set(sede);
+  }
+
+  agregarDependencia(dependencia: any) {
+    return this.firestore.collection('Dependencias').doc(dependencia.Nombre).set(dependencia);
   }
 }
 

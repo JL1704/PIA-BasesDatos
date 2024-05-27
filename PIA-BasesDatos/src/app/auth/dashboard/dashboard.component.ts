@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -10,12 +10,19 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class DashboardComponent {
 
+  usuario: any = {
+    nombre: '',
+    email: '',
+    rol: ''
+  };
+
   constructor(private authService: AuthService, private afAuth: AngularFireAuth, private firestore: AngularFirestore) {
 
   }
 
   ngOnInit(): void {
-    this.afAuth.authState.subscribe(user => {
+    this.obtenerDatosUsuario();
+    /*this.afAuth.authState.subscribe(user => {
       if (user) {
         // Mostrar un mensaje de alerta con el UID del usuario
        // alert('UID del usuario: ' + user.uid);
@@ -33,7 +40,7 @@ export class DashboardComponent {
             console.log('El documento ya existe en la colección Users');
           }
         });
-
+/*
         // Verificar si ya existe un documento con este UID en la colección "Users"
         this.firestore.collection('ShoppingCart').doc(user.uid).get().subscribe(doc => {
           if (!doc.exists) {
@@ -56,12 +63,34 @@ export class DashboardComponent {
         // Mostrar un mensaje de alerta indicando que no hay usuario autenticado
        // alert('No hay usuario autenticado.');
       }
+    });*/
+
+    
+    
+
+  }
+
+  obtenerDatosUsuario() {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.firestore.collection('usuarios').doc(user.uid).get().subscribe(doc => {
+          if (doc.exists) {
+            this.usuario = doc.data();
+          } else {
+            console.log('No se encontraron datos para el usuario.');
+          }
+        });
+      } else {
+        console.log('No hay usuario autenticado.');
+      }
     });
   }
-  
 
 
   logOut() {
     this.authService.logOut();
   }
+
+  
 }
+

@@ -1,6 +1,11 @@
 export interface Sedes{
-    IdSede:number;
+    IdSede:string;
     NombreSede: string;
-    FKIdDireccion?: number;
     TipoSede: string;
+    Calle: string;
+    CodigoPostal: string;
+    Colonia: string;
+    Estado: string;
+    Municipio: string;
+
 }

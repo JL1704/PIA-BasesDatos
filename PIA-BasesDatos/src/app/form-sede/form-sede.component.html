@@ -10,5 +10,34 @@
 
 <ion-content>
   <!-- Contenido de tu formulario de sede -->
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nuevaSede.Nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Tipo de Sede</ion-label>
+    <ion-input [(ngModel)]="nuevaSede.TipoSede"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Calle</ion-label>
+    <ion-input [(ngModel)]="nuevaSede.Calle"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Colonia</ion-label>
+    <ion-input [(ngModel)]="nuevaSede.Colonia"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Municipio</ion-label>
+    <ion-input [(ngModel)]="nuevaSede.Municipio"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Estado</ion-label>
+    <ion-input [(ngModel)]="nuevaSede.Estado"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Código Postal</ion-label>
+    <ion-input [(ngModel)]="nuevaSede.CodigoPostal"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="agregarSede()">Agregar Sede</ion-button>
 </ion-content>
 

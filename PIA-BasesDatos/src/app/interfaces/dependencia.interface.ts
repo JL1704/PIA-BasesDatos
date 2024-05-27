@@ -1,5 +1,5 @@
 export interface Dependencias {
-    IdDependencia: number;
+    IdDependencia: string;
     NombreDependencia: string;
     TipoDependencia:string
 }

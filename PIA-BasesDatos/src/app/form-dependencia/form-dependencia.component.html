@@ -10,5 +10,14 @@
 
 <ion-content>
   <!-- Contenido de tu formulario de dependencia -->
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nuevaDependencia.Nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Tipo de Dependencia</ion-label>
+    <ion-input [(ngModel)]="nuevaDependencia.TipoDependencia"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="agregarDependencia()">Agregar Dependencia</ion-button>
 </ion-content>
 

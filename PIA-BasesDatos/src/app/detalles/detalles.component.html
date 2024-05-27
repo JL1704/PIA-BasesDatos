@@ -17,11 +17,15 @@
     <ion-card-content>
       <p>Lugar: {{ evento.fkIdSede }}</p>
       <p>Categoría: {{ evento.categoria }}</p>
+      <p>Temario: {{ evento.temario}}</p>
       <p>Capacidad: {{ evento.capacidad }}</p>
       <p>Costos: {{ evento.costos }}</p>
       <p>Disponibilidad: {{ evento.disponibilidad }}</p>
       <p>Fecha de Creación: {{ evento.fechaCreacion.toDate() | date }}</p>
       <p>Fecha del Evento: {{ evento.fechaEvento.toDate() | date}} </p>
+      <p>Lugar: {{sede.Calle}}, {{sede.Colonia}}, {{sede.Municipio}}, {{sede.Estado}}, {{sede.CodigoPostal}}</p>
+      <!--<p>Dependencia: {{dependencia.NombreDependencia}}, {{dependencia.TipoDependencia}}</p>-->
+      <ion-img [src]="evento.poster" alt="Imagen del evento"></ion-img>
       <!-- Puedes agregar más detalles aquí según sea necesario -->
     </ion-card-content>
   </ion-card>

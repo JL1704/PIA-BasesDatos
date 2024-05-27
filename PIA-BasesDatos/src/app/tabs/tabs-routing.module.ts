@@ -24,8 +24,8 @@ const routes: Routes = [
         loadChildren: () => import('../eventos-registrados/eventos-registrados.module').then(m => m.EventosRegistradosPageModule)
       },
       {
-        path: 'eventos-creados',
-        loadChildren: () => import('../eventos-creados/eventos-creados.module').then(m => m.EventosCreadosPageModule)
+        path: 'registrar',
+        loadChildren: () => import('../registrar/registrar.module').then(m => m.RegistrarPageModule)
       },
       {
         path: '',
