@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { EventosComponent } from '../eventos/eventos.component';
+import { DetallesComponent } from '../detalles/detalles.component';
 
 import { HomePage } from './home.page';
 
@@ -16,6 +17,6 @@ import { HomePage } from './home.page';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, EventosComponent]
+  declarations: [HomePage, EventosComponent, DetallesComponent]
 })
 export class HomePageModule {}

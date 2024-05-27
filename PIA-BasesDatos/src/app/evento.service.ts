@@ -11,6 +11,8 @@ import { Evento } from './interfaces/evento.interface';
 })
 export class EventoService {
 
+  private eventosCollection = this.firestore.collection<Evento>('eventos');
+
   constructor(private firestore: AngularFirestore, private storage: AngularFireStorage) {}
 
   subirImagen(file: File, nombreEvento: string): Observable<string> {
@@ -29,35 +31,20 @@ export class EventoService {
     return from(eventoRef.set(evento));
   }
 
- /* obtenerEventos(): Observable<Evento[]> {
-    return this.firestore.collection<Evento>('eventos').snapshotChanges().pipe(
+  getEventos(): Observable<Evento[]> {
+    return this.eventosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Evento;
-        const id = a.payload.doc.id;
-        return { id, ...data };
+        return { ...data, idEvento: a.payload.doc.id }; // Elimina cualquier duplicación de `idEvento`
       }))
     );
-  }*/
-/*
-  obtenerEventos(): Observable<Evento[]> {
-    return this.firestore.collection<Evento>('eventos').get().pipe(
-      map(snapshot => {
-        const eventos: Evento[] = [];
-        snapshot.forEach(doc => {
-          const data = doc.data() as Evento;
-          const id = doc.id;
-          eventos.push({ ...data });
-        });
-        return eventos;
-      })
-    );
-  }*/
-
-  obtenerEventos(): Observable<Evento[]> {
-    return this.firestore.collection<Evento>('eventos').valueChanges({ idField: 'id' });
   }
 
+
+
 }
+
+
 
 
 

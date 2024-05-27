@@ -1,16 +1,18 @@
+import { Timestamp } from "@angular/fire/firestore";
+
 export interface Evento {
-    idEvento: number;
+    idEvento: string;
     nombre: string;
     categoria: string;
-    fkIdSede: number;
-    dependencias: number;
+    fkIdSede: string;
+    dependencias: string;
     poster: string;
     temario: string;
     costos?: number;
     capacidad: number;
     disponibilidad?: string;
-    fkIdInvitados?: number;
-    fechaEvento: Date;
-    fechaCreacion: Date;
+    fkIdInvitados?: string;
+    fechaEvento: Timestamp;
+    fechaCreacion: Timestamp;
   }
   

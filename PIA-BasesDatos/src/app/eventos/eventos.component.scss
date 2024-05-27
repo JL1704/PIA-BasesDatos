@@ -1,0 +1,49 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  .date-container {
+    background-color: #f0f0f0;
+    width: 30%; 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #8383f7;
+  
+    .day {
+      font-size: 48px;  // Tamaño grande para el día
+      font-weight: bold;
+    }
+  
+    .month {
+      font-size: 24px;  // Tamaño más pequeño para el mes
+      margin-top: -10px;  // Ajustar el espaciado entre el día y el mes
+    }
+  }
+  
+  
+  .event-date {
+    font-size: 24px; /* Tamaño grande para la fecha */
+    font-weight: bold;
+  }
+  
+  .info-container {
+    width: 75%; /* Ocupa el resto de la tarjeta */
+    padding: 16px;
+  }
+  
+  ion-card-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  ion-card-content p {
+    margin: 0 0 16px 0;
+  }
+  
+  ion-button {
+    width: 100%;
+  }
